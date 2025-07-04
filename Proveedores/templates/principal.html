@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agencia de Turismo</title>
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+</head>
+<body>
+    <!-- Header con imagen de fondo -->
+    <header class="imagenraf">
+        <h1>Agencia de Turismo</h1>
+        <nav>
+            <a href="{% url 'principal' %}">Inicio</a>
+            <a href="{% url 'Listar_Proveedores' %}">Proveedores</a>
+        </nav>
+    </header>
+    
+    <!-- Contenido dinámico -->
+    <main>
+        {% block content %}
+        <h2>Bienvenido</h2>
+        <p>Elige una opción del menú para comenzar.</p>
+        {% endblock %}
+    </main>
+    
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>© 2025 Agencia de Turismo. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+

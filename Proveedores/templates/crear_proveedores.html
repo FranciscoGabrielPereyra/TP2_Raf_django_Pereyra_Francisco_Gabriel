@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Crear Proveedor</h1>
+
+<form method="POST" action="{% url 'crear_proveedores' %}">
+    {% csrf_token %}
+
+    <label>Nombre:</label><br>
+    <input type="text" name="nombre" required><br>
+    <label>Apellido:</label><br>
+    <input type="text" name="apellido" required><br>
+    <label>Correo:</label><br>
+    <input type="email" name="correo" required><br>
+    <label>Teléfono:</label><br>
+    <input type="text" name="telefono"><br>
+    <label>Empresa:</label><br>
+    <input type="text" name="empresa"><br>
+    <label>Sitio Web:</label><br>
+    <input type="text" name="sitio_web"><br><br>
+    <button type="submit" class="boton">Guardar</button>
+</form>
+{% endblock %}

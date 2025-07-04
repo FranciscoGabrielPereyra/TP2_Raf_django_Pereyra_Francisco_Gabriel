@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Lista de Proveedores</h1>
+
+<a href="{% url 'crear_proveedores' %}" class="boton crear">Crear proveedor</a>
+
+<div class="card-container">
+    {% for proveedor in proveedores %}
+    <div class="card">
+        <div class="imgcontainer">
+            <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#666666"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm80-80h480L570-520 450-360l-90-120-120 160Zm-80 80v-480 480Z"/></svg>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">{{ proveedor.nombre }} {{ proveedor.apellido }}</h2>
+            <p><strong>Empresa:</strong> {{ proveedor.empresa }}</p>
+            <p><strong>Correo:</strong> {{ proveedor.correo }}</p>
+            <p><strong>Teléfono:</strong> {{ proveedor.telefono }}</p>
+            <p><a href="{{ proveedor.sitio_web }}" target="_blank">Visitar sitio web</a></p>
+            <div class="card-buttons">
+                <a href="{% url 'editar_proveedores' proveedor.id %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'eliminar_proveedores' proveedor.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No hay proveedores registrados.</p>
+    {% endfor %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Actualizar Proveedor</h1>
+
+<form method="POST" action="{% url 'editar_proveedores' proveedor.id %}">
+    {% csrf_token %}
+    <label>Nombre:</label><br>
+    <input type="text" name="nombre" value="{{ proveedor.nombre }}" required><br>
+    <label>Apellido:</label><br>
+    <input type="text" name="apellido" value="{{ proveedor.apellido }}" required><br>
+    <label>Correo:</label><br>
+    <input type="email" name="correo" value="{{ proveedor.correo }}" required><br>
+    <label>Teléfono:</label><br>
+    <input type="text" name="telefono" value="{{ proveedor.telefono }}"><br>
+    <label>Empresa:</label><br>
+    <input type="text" name="empresa" value="{{ proveedor.empresa }}"><br>
+    <label>Sitio Web:</label><br>
+    <input type="url" name="sitio_web" value="{{ proveedor.sitio_web }}"><br><br>
+    <button type="submit" class="boton">Actualizar</button>
+</form>
+{% endblock %}
